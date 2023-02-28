@@ -6,6 +6,9 @@ spec:
   steps:
     - name: maven
       image: kulbhushanmayer/ubuntu:appBuild
-      script: |
-        #!/bin/bash
+      command: ["mvn"]
+      args: 
+        - "clean package"
+        script: |
+        cd  gitops
         git clone -branch develop https://github.com/kul-samples/java_sample_webapp
