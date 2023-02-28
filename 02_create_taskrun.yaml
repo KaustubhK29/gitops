@@ -5,3 +5,12 @@ metadata:
 spec:
   taskRef:
     name: script 
+
+    ---
+    apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: maven
+spec:
+  taskRef:
+    name: maven
