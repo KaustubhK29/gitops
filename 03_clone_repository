@@ -8,4 +8,4 @@ spec:
       image: kulbhushanmayer/ubuntu:appBuild
       script: |
         #!/bin/bash
-        git clone https://github.com/kul-samples/java_sample_webapp
+        git clone -branch develop https://github.com/kul-samples/java_sample_webapp
