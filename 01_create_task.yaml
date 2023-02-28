@@ -21,7 +21,7 @@ spec:
 apiVersion: tekton.dev/v1
 kind: Task
 metadata:
-  name: maven
+  - name: maven-with-params
 spec:
   steps:
     - name: maven
