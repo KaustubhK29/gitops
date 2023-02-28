@@ -21,4 +21,4 @@ spec:
         secretName: git-credentials
   podTemplate:
     nodeSelector:
-      kubernetes.io/hostname: app-node-2
+      kubernetes.io/hostname: app-node2
