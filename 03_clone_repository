@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: script
+spec:
+  steps:
+    - name: maven
+      image: kulbhushanmayer/ubuntu:appBuild
+      script: |
+        #!/bin/bash
+        git clone https://github.com/kul-samples/java_sample_webapp
