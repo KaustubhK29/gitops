@@ -16,7 +16,7 @@ spec:
         #!/bin/bash
         echo [INFO] Hostname is `hostname`
         cat /etc/os-release
-
+---
         # task with parameter
 apiVersion: tekton.dev/v1
 kind: Task
