@@ -15,4 +15,4 @@ spec:
       image: kulbhushanmayer/ubuntu:appBuild
       command: ["mvn"]     
       args:
-        - "$(params.goal)"
+        -"$(params.goal)"
