@@ -6,7 +6,7 @@ spec:
   params:
     - name: goal
       type: string
-    - description: maven goal to be executed
+      description: maven goal to be executed
       default: compile
   workspaces:
     - name: source-code
