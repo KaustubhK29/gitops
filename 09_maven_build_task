@@ -6,13 +6,14 @@ spec:
   params:
     - name: goal
       type: string
-      description: maven goal to be executed
+      description: mvn goal to be executed
       default: compile
   workspaces:
     - name: source-code
   steps:
     - name: maven
-      image: kulbhushanmayer/ubuntu:appBuild
-      command: ["mvn"]     
-      args:
-        - "$(params.goal)"
+      image: kulbhushanmayer/ubuntu:maven
+      script: |
+        #!/bin/bash
+        cd $(workspaces.source-code.path)
+        mvn $(params.goal)
