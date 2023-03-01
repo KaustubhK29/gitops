@@ -12,9 +12,14 @@ spec:
     - name: revision
       type: string
       description: branch to clone for build
+    - name: IMAGE
+    - name: goal
+      type: string
+      description: Image TAG to be created
   workspaces:
     - name: source-code
     - name: git-credentials
+    - name: dockerconfig
   tasks:
     - name: clone
       taskRef:
@@ -31,3 +36,27 @@ spec:
           value: "$(params.revision)"
         - name: deleteExisting
           value: 'true'
+    - name: build
+      runAfter:
+        - clone
+      taskRef:
+        name: maven-build
+      workspaces:
+        - name: source-code
+          workspace: source-code
+      params:
+        - name: goal
+          value: $(params.goal)
+    - name: build-and-push-image
+      runAfter:
+        - build
+      taskRef:
+        name: kaniko
+      workspaces:
+        - name: source
+          workspace: source-code
+        - name: dockerconfig
+          workspace: dockerconfig
+      params:
+        - name: IMAGE
+          value: $(params.IMAGE)
