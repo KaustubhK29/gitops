@@ -9,11 +9,13 @@ spec:
     - name: repository
       value: git@github.com:kul-samples/java_sample_webapp.git
     - name: revision
-      value: master
+      value: main
     - name: IMAGE
       value: kaustubhk29/kaniko:latest
     - name: goal
       value: package
+    - name: application-name
+      value: java-based-services 
   workspaces:
     - name: source-code
       persistentVolumeClaim:
