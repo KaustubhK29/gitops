@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-env-configmap
+data:
+  ARGOCD_SERVER: 10.109.67.166
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argocd-server
+type: Opaque
+data:
+  ARGOCD_USERNAME: YWRtaW4=
+  ARGOCD_PASSWORD: V2VsY29tZTJpYm0=
