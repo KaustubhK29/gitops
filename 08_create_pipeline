@@ -16,6 +16,9 @@ spec:
     - name: goal
       type: string
       description: Image TAG to be created
+    - name: application-name
+      type: string
+      description: Image TAG to be created
   workspaces:
     - name: source-code
     - name: git-credentials
@@ -60,3 +63,15 @@ spec:
       params:
         - name: IMAGE
           value: $(params.IMAGE)
+    - name: deploy
+      runAfter:
+        - build-and-push-image
+      taskRef:
+        name: argocd-task-sync-and-wait
+      params:
+        - name: flags
+          value: --insecure
+        - name: application-name
+          value: $(params.application-name)
+        - name: revision
+          value: $(params.revision)
